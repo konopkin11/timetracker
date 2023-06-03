@@ -7,6 +7,7 @@
 #include <QLabel>
 #include <QCloseEvent>
 #include <QVBoxLayout>
+#include <QEvent>
 class MyWindow : public QWidget {
     Q_OBJECT
 public:
@@ -26,6 +27,14 @@ protected:
         this->hide();
         event->ignore();
     }
+    void changeEvent(QEvent* event) override {
+        if (event->type() == QEvent::ActivationChange) {
+          if (!isActiveWindow()) {
+            this->hide();
+            //this->closeEvent(new QCloseEvent);
+          }
+        }
+      }
 };
 
 #endif // MYWINDOW_H

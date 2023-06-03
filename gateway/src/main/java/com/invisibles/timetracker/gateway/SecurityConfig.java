@@ -22,8 +22,10 @@ public class SecurityConfig {
                 .anyExchange()
                 .authenticated()
                 .and()
+                .oauth2ResourceServer().jwt().and().and()
                 .oauth2Login()
                 .and()
+
                 .logout()
                 .logoutSuccessHandler(oidcLogoutSuccessHandler())
         ;

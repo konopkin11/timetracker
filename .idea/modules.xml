@@ -5,6 +5,7 @@
       <module fileurl="file://$PROJECT_DIR$/.idea/modules/configserver.main.iml" filepath="$PROJECT_DIR$/.idea/modules/configserver.main.iml" />
       <module fileurl="file://$PROJECT_DIR$/.idea/modules/eurekaserver.main.iml" filepath="$PROJECT_DIR$/.idea/modules/eurekaserver.main.iml" />
       <module fileurl="file://$PROJECT_DIR$/.idea/modules/gateway.main.iml" filepath="$PROJECT_DIR$/.idea/modules/gateway.main.iml" />
+      <module fileurl="file://$PROJECT_DIR$/.idea/modules/resource.main.iml" filepath="$PROJECT_DIR$/.idea/modules/resource.main.iml" />
       <module fileurl="file://$PROJECT_DIR$/.idea/timetracker.iml" filepath="$PROJECT_DIR$/.idea/timetracker.iml" />
     </modules>
   </component>

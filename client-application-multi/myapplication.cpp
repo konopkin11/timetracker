@@ -5,13 +5,26 @@
 #include <QSystemTrayIcon>
 #include "mywindow.h"
 #include <QtConcurrent>
+#ifdef Q_OS_MAC
 #include "macosAppleScript.cpp"
+#elif defined(Q_OS_WIN)
+#include "windowsScript.cpp"
+#elif defined(Q_OS_LINUX)
+#include "linuxScript.cpp"
+#endif
+
 MyApplication::MyApplication(int &argc, char **argv) : QApplication(argc, argv) {
 
     window = new MyWindow();
 
     QAction *openAction = new QAction("Open", this);
-   connect(openAction, &QAction::triggered, window, &QWidget::show);
+   //connect(openAction, &QAction::triggered, window, &QWidget::show);
+    connect(openAction, &QAction::triggered, this, [&]() {
+        window->show();
+        window->raise();
+        window->activateWindow();
+        window->setWindowState(Qt::WindowActive);
+    });
    QAction *exitAction = new QAction("Exit", this);
    connect(exitAction, &QAction::triggered, this, &QApplication::quit);
 
